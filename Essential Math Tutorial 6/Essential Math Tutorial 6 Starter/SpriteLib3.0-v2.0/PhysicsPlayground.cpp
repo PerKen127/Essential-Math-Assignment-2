@@ -534,11 +534,11 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 			b2Body* tempBody;
 			b2BodyDef tempDef;
 			tempDef.type = b2_dynamicBody;
-			tempDef.position.Set(float32(5.f), float32(70.f));
+			tempDef.position.Set(float32(725.f), float32(70.f));
 
 			tempBody = m_physicsWorld->CreateBody(&tempDef);
 
-			tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, GROUND, PLAYER | ENEMY);
+			tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, OBJECTS, GROUND | ENVIRONMENT | PLAYER | ENEMY);
 			tempPhsBody.SetColor(vec4(0.f, 1.f, 0.f, 0.3f));
 			tempPhsBody.SetRotationAngleDeg(90.f);
 		}
