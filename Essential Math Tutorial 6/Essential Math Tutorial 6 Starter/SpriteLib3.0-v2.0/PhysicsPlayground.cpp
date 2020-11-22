@@ -107,7 +107,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempPhsBody.SetGravityScale(1.f);
 	}
 
-	//obstacle 1
+#pragma region obstacles
+#pragma region obstacle1
 	{
 		//Setup static Top Platform
 		{
@@ -367,6 +368,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 			tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 		}
+
 		//Setup trigger
 		{
 			//Creates entity
@@ -409,13 +411,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 			tempPhsBody.SetColor(vec4(1.f, 0.f, 0.f, 0.3f));
 		}
 	}
-
-
-
-	ECS::GetComponent<HorizontalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
-	ECS::GetComponent<VerticalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
-
-		//obstacle 2
+#pragma endregion
+#pragma region obstacle 2
 	{
 		//Setup lower platform
 		{
@@ -450,6 +447,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		}
 
+
+
 		//Setup higher platform
 		{
 			//Creates entity
@@ -483,6 +482,12 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		}
 	}
+#pragma endregion	
+#pragma endregion
+	
+	ECS::GetComponent<HorizontalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
+	ECS::GetComponent<VerticalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
+
 }
 
 void PhysicsPlayground::Update()
