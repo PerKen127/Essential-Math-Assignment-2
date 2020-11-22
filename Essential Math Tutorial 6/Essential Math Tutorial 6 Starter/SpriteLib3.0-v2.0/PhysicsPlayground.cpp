@@ -109,7 +109,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 #pragma region obstacles
 #pragma region obstacle1
-	{
+	
 		//Setup static Top Platform
 		{
 			//Creates entity
@@ -410,7 +410,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 			tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), true, TRIGGER, OBJECTS);
 			tempPhsBody.SetColor(vec4(1.f, 0.f, 0.f, 0.3f));
 		}
-	}
+
 #pragma endregion
 #pragma region obstacle 2
 	{
