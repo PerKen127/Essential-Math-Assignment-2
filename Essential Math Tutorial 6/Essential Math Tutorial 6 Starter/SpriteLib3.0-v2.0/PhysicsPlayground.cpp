@@ -581,11 +581,11 @@ void PhysicsPlayground::KeyboardHold()
 	//Change physics body size for circle
 	if (Input::GetKey(Key::O))
 	{
-		player.ScaleBody(1.3 * Timer::deltaTime, 0);
+		player.ScaleBody(1.8 * Timer::deltaTime, 0);
 	}
 	else if (Input::GetKey(Key::I))
 	{
-		player.ScaleBody(-1.3 * Timer::deltaTime, 0);
+		player.ScaleBody(-1.8 * Timer::deltaTime, 0);
 	}
 }
 
