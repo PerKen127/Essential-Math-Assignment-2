@@ -93,7 +93,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_dynamicBody;
-		tempDef.position.Set(float32(0.f), float32(30.f));
+		tempDef.position.Set(float32(-140.f), float32(30.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -119,7 +119,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		//Sets up components
 		std::string fileName = "boxSprite.jpg";
-		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 150, 10);
+		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 250, 10);
 		ECS::GetComponent<Transform>(entity).SetPosition(vec3(30.f, -20.f, 2.f));
 
 		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
@@ -130,7 +130,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_staticBody;
-		tempDef.position.Set(float32(30.f), float32(-10.f));
+		tempDef.position.Set(float32(-70.f), float32(-10.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -163,7 +163,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_staticBody;
-		tempDef.position.Set(float32(137.8f), float32(-29.6f));
+		tempDef.position.Set(float32(87.8f), float32(-29.6f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -185,7 +185,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		//Sets up components
 		std::string fileName = "boxSprite.jpg";
-		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 150, 10);
+		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 250, 10);
 		ECS::GetComponent<Transform>(entity).SetPosition(vec3(30.f, -20.f, 2.f));
 
 		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
@@ -227,7 +227,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_staticBody;
-		tempDef.position.Set(float32(290.f), float32(-10.f));
+		tempDef.position.Set(float32(340.f), float32(-10.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -259,7 +259,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_staticBody;
-		tempDef.position.Set(float32(325.f), float32(-30.f));
+		tempDef.position.Set(float32(375.f), float32(-30.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -290,7 +290,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_staticBody;
-		tempDef.position.Set(float32(260.f), float32(60.f));
+		tempDef.position.Set(float32(310.f), float32(60.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -321,7 +321,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_staticBody;
-		tempDef.position.Set(float32(-40.f), float32(40.f));
+		tempDef.position.Set(float32(-200.f), float32(40.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -354,7 +354,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_dynamicBody;
-		tempDef.position.Set(float32(45.f), float32(-8.f));
+		tempDef.position.Set(float32(5.f), float32(-8.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -392,7 +392,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_staticBody;
-		tempDef.position.Set(float32(300.f), float32(-30.f));
+		tempDef.position.Set(float32(350.f), float32(-30.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
