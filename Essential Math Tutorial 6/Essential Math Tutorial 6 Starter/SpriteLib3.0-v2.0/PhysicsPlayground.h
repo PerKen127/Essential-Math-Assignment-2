@@ -22,5 +22,6 @@ protected:
 
 	int ball = 0;
 	int blocker = 0;
+	int blocker2 = 0;
 	int ob2Box = 0;
 };
