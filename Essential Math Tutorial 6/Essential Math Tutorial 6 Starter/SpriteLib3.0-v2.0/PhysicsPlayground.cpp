@@ -610,16 +610,12 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		//Sets up components
 		std::string fileName = "boxSprite.jpg";
 		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 40, 40);
-		ECS::GetComponent<Transform>(entity).SetPosition(vec3(30.f, -20.f, 80.f));
-		//makes ball disappear
+		ECS::GetComponent<Transform>(entity).SetPosition(vec3(30.f, -20.f, 2.f));
+		
+		//makes box disappear
 		ECS::GetComponent<Trigger*>(entity) = new DestroyTrigger();
 		ECS::GetComponent<Trigger*>(entity)->SetTriggerEntity(entity);
-		ECS::GetComponent<Trigger*>(entity)->AddTargetEntity(ball);
-		ECS::GetComponent<Sprite>(entity).SetTransparency(0.f);
-		//makes blocker disappear
-		ECS::GetComponent<Trigger*>(entity) = new DestroyTrigger();
-		ECS::GetComponent<Trigger*>(entity)->SetTriggerEntity(entity);
-		ECS::GetComponent<Trigger*>(entity)->AddTargetEntity(blocker);
+		ECS::GetComponent<Trigger*>(entity)->AddTargetEntity(ob2Box);
 		ECS::GetComponent<Sprite>(entity).SetTransparency(0.f);
 
 		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
@@ -673,7 +669,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	{
 		//Creates entity
 		auto entity = ECS::CreateEntity();
-		blocker = entity;
+		ob2Box = entity;
 
 		//Add components
 		ECS::AttachComponent<Sprite>(entity);
@@ -685,11 +681,13 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 30, 30);
 		ECS::GetComponent<Transform>(entity).SetPosition(vec3(30.f, -20.f, 2.f));
 		ECS::GetComponent<Sprite>(entity).SetTransparency(1.f);
+
 		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
 		auto& tempPhsBody = ECS::GetComponent<PhysicsBody>(entity);
 
 		float shrinkX = 0.f;
 		float shrinkY = 0.f;
+
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_dynamicBody;
@@ -697,7 +695,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
-		tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, OBJECTS, GROUND | ENVIRONMENT | PLAYER | ENEMY);
+		tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, OBJECTS, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.3f);
 		tempPhsBody.SetColor(vec4(0.f, 1.f, 0.f, 0.3f));
 		tempPhsBody.SetRotationAngleDeg(90.f);
 	}
