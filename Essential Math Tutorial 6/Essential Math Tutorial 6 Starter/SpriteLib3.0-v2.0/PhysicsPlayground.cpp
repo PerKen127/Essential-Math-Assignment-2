@@ -102,6 +102,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		//tempPhsBody = PhysicsBody(entity, tempBody, float((tempSpr.GetHeight() - shrinkY)/2.f), vec2(0.f, 0.f), false, PLAYER, ENEMY | OBJECTS | PICKUP | TRIGGER, 0.5f, 3.f);
 		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 2.f), b2Vec2(0.f, -tempSpr.GetHeight() / 2.f) };
 		tempPhsBody = PhysicsBody(entity, BodyType::TRIANGLE, tempBody, points, vec2(0.f, 0.f), false, PLAYER, ENEMY | OBJECTS | PICKUP | TRIGGER, 0.5f, 3.f);
+		
 		tempPhsBody.SetRotationAngleDeg(0.f);
 		tempPhsBody.SetFixedRotation(true);
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
@@ -733,7 +734,99 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	}
 #pragma endregion	
 #pragma region obstacle 3
+	//Creates octa 1
+	{
+		auto entity = ECS::CreateEntity();
 
+		//Add components
+		ECS::AttachComponent<Sprite>(entity);
+		ECS::AttachComponent<Transform>(entity);
+		ECS::AttachComponent<PhysicsBody>(entity);
+
+		//Sets up components
+		std::string fileName = "stahp.png";
+		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 150, 150);
+		ECS::GetComponent<Transform>(entity).SetPosition(vec3(30.f, -20.f, 2.f));
+
+		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
+		auto& tempPhsBody = ECS::GetComponent<PhysicsBody>(entity);
+
+		float shrinkX = 0.f;
+		float shrinkY = 0.f;
+		b2Body* tempBody;
+		b2BodyDef tempDef;
+		tempDef.type = b2_staticBody;
+		tempDef.position.Set(float32(1450.f), float32(-25.f));
+		tempBody = m_physicsWorld->CreateBody(&tempDef);
+		std::vector<b2Vec2>points = { b2Vec2(tempSpr.GetHeight() / 5.f, tempSpr.GetHeight() / 2.f), b2Vec2(-tempSpr.GetWidth() / 5.f,tempSpr.GetHeight() / 2.f),
+			b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 5.f), b2Vec2(-tempSpr.GetHeight() / 5.f,-tempSpr.GetHeight() / 2.f),
+			b2Vec2(-tempSpr.GetWidth() / 5.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 5,-tempSpr.GetHeight() / 2),
+			b2Vec2(tempSpr.GetWidth() / 2.f,tempSpr.GetWidth() / 5.f),b2Vec2(tempSpr.GetWidth() / 2.f,tempSpr.GetHeight() / 5.f) };
+		tempPhsBody = PhysicsBody(entity, BodyType::OCTAGON, tempBody, points, vec2(0.f, 0.f), false, OBJECTS, PLAYER, 0.5f, 3.f);
+		tempPhsBody.SetColor(vec4(0.f, 1.f, 0.f, 0.3f));
+	}
+	//Creates octa 2
+	{
+		auto entity = ECS::CreateEntity();
+
+		//Add components
+		ECS::AttachComponent<Sprite>(entity);
+		ECS::AttachComponent<Transform>(entity);
+		ECS::AttachComponent<PhysicsBody>(entity);
+
+		//Sets up components
+		std::string fileName = "stahp.png";
+		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 150, 150);
+		ECS::GetComponent<Transform>(entity).SetPosition(vec3(30.f, -20.f, 2.f));
+
+		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
+		auto& tempPhsBody = ECS::GetComponent<PhysicsBody>(entity);
+
+		float shrinkX = 0.f;
+		float shrinkY = 0.f;
+		b2Body* tempBody;
+		b2BodyDef tempDef;
+		tempDef.type = b2_staticBody;
+		tempDef.position.Set(float32(1650.f), float32(0.f));
+		tempBody = m_physicsWorld->CreateBody(&tempDef);
+		std::vector<b2Vec2>points = { b2Vec2(tempSpr.GetHeight() / 5.f, tempSpr.GetHeight() / 2.f), b2Vec2(-tempSpr.GetWidth() / 5.f,tempSpr.GetHeight() / 2.f),
+			b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 5.f), b2Vec2(-tempSpr.GetHeight() / 5.f,-tempSpr.GetHeight() / 2.f),
+			b2Vec2(-tempSpr.GetWidth() / 5.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 5,-tempSpr.GetHeight() / 2),
+			b2Vec2(tempSpr.GetWidth() / 2.f,tempSpr.GetWidth() / 5.f),b2Vec2(tempSpr.GetWidth() / 2.f,tempSpr.GetHeight() / 5.f) };
+		tempPhsBody = PhysicsBody(entity, BodyType::OCTAGON, tempBody, points, vec2(0.f, 0.f), false, OBJECTS, PLAYER, 0.5f, 3.f);
+		tempPhsBody.SetColor(vec4(0.f, 1.f, 0.f, 0.3f));
+	}
+	//Creates octa 1
+	{
+		auto entity = ECS::CreateEntity();
+
+		//Add components
+		ECS::AttachComponent<Sprite>(entity);
+		ECS::AttachComponent<Transform>(entity);
+		ECS::AttachComponent<PhysicsBody>(entity);
+
+		//Sets up components
+		std::string fileName = "stahp.png";
+		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 150, 150);
+		ECS::GetComponent<Transform>(entity).SetPosition(vec3(30.f, -20.f, 2.f));
+
+		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
+		auto& tempPhsBody = ECS::GetComponent<PhysicsBody>(entity);
+
+		float shrinkX = 0.f;
+		float shrinkY = 0.f;
+		b2Body* tempBody;
+		b2BodyDef tempDef;
+		tempDef.type = b2_staticBody;
+		tempDef.position.Set(float32(1850.f), float32(15.f));
+		tempBody = m_physicsWorld->CreateBody(&tempDef);
+		std::vector<b2Vec2>points = { b2Vec2(tempSpr.GetHeight() / 5.f, tempSpr.GetHeight() / 2.f), b2Vec2(-tempSpr.GetWidth() / 5.f,tempSpr.GetHeight() / 2.f),
+			b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 5.f), b2Vec2(-tempSpr.GetHeight() / 5.f,-tempSpr.GetHeight() / 2.f),
+			b2Vec2(-tempSpr.GetWidth() / 5.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 5,-tempSpr.GetHeight() / 2),
+			b2Vec2(tempSpr.GetWidth() / 2.f,tempSpr.GetWidth() / 5.f),b2Vec2(tempSpr.GetWidth() / 2.f,tempSpr.GetHeight() / 5.f) };
+		tempPhsBody = PhysicsBody(entity, BodyType::OCTAGON, tempBody, points, vec2(0.f, 0.f), false, OBJECTS, PLAYER, 0.5f, 3.f);
+		tempPhsBody.SetColor(vec4(0.f, 1.f, 0.f, 0.3f));
+	}
 #pragma endregion
 #pragma endregion
 	
